@@ -1,3 +1,4 @@
+build/
 # Prerequisites
 *.d
 
@@ -45,3 +46,4 @@ build/.vs/Lab4/v16/Browse.VC.opendb
 *.ilk
 *.stamp
 *.stamp
+build/.vs/Lab4/v16/ipch/AutoPCH/fd6023e400ac2a6b/TEXTLINK.ipch

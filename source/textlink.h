@@ -20,7 +20,7 @@ typedef TTextMem* PTTextMem;
 
 class TTextLink : public TDatValue 
 {
-protected:
+public:
 	TStr Str;
 	PTTextLink pNext, pDown;
 	static TTextMem MemHeader;//система управления памятью
@@ -42,7 +42,7 @@ public:
 	PTTextLink GetNext() { return pNext; }
 	PTTextLink GetDown() { return pDown; }
 	TDatValue* GetCopy() { return new TTextLink(Str, pNext, pDown); }
-protected:
+public:
 	virtual void Print(std::ostream& os) { os << Str; }
 friend class TText;
 };

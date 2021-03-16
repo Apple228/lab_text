@@ -1,11 +1,16 @@
 #include <iostream>
-//#include "text.h"
+#include "text.h"
 #include "textlink.h"
 using namespace std;
 
 int main()
 {
-	TTextLink txt;
-	txt.InitMemSystem(10);
-	txt.PrintFreeLink();
+	TTextLink::InitMemSystem();
+	TText txt;
+	txt.SetLine("work1");
+	txt.Print();
+	txt.SetLine("work2");
+	txt.Print();
+	txt.GoFirstLink();
+	//txt.PrintFreeLink();
 }

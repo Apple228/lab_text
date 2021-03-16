@@ -1,6 +1,6 @@
 #include <conio.h>
 #include "textlink.h"
-#include "ttext.h"
+#include "text.h"
 
 TTextMem TTextLink::MemHeader;
 
