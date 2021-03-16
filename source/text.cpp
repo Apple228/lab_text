@@ -1,10 +1,10 @@
-#include "text.h"
+п»ї#include "text.h"
 #include "textlink.h"
 #include <fstream>
 #define BufLength 80
 
-static char StrBuf[BufLength + 1]; // буфер для ввода строк
-static int TextLevel;            // номер текущего уровня текста
+static char StrBuf[BufLength + 1]; // Р±СѓС„РµСЂ РґР»СЏ РІРІРѕРґР° СЃС‚СЂРѕРє
+static int TextLevel;            // РЅРѕРјРµСЂ С‚РµРєСѓС‰РµРіРѕ СѓСЂРѕРІРЅСЏ С‚РµРєСЃС‚Р°
 TText::TText(PTTextLink pl) {
     if (pl == nullptr)
         pl = new TTextLink();
@@ -12,17 +12,17 @@ TText::TText(PTTextLink pl) {
     pCurrent = pFirst;
 }
 
-//навигация
-int TText::GoFirstLink() { // переход к первой строке
+//РЅР°РІРёРіР°С†РёСЏ
+int TText::GoFirstLink() { // РїРµСЂРµС…РѕРґ Рє РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРµ
     while (!Path.empty())
-        Path.pop(); // очистка стека
+        Path.pop(); // РѕС‡РёСЃС‚РєР° СЃС‚РµРєР°
     pCurrent = pFirst;
     if (pCurrent == nullptr)
         throw TextError;
 }
 
 
-void TText::SetLine(std::string s) { // замена текущей строки
+void TText::SetLine(std::string s) { // Р·Р°РјРµРЅР° С‚РµРєСѓС‰РµР№ СЃС‚СЂРѕРєРё
     if (pCurrent == nullptr)
         throw TextError;
     strncpy(pCurrent->Str, s.c_str(), TextLineLength);
@@ -34,7 +34,7 @@ void TText::SetLine(std::string s) { // замена текущей строки
 
 
 
-// печать текста
+// РїРµС‡Р°С‚СЊ С‚РµРєСЃС‚Р°
 
 void TText::PrintText(PTTextLink ptl) 
 {

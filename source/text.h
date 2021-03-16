@@ -1,4 +1,4 @@
-#ifndef _TTEXT_H
+п»ї#ifndef _TTEXT_H
 #define _TTEXT_H
 
 #include <stack>
@@ -15,49 +15,49 @@ typedef TText* PTText;
 class TText : public TDataCom
 {
 protected:
-	PTTextLink pFirst;        // указатель корня дерева
-	PTTextLink pCurrent;      // указатель текущей строки
-	std::stack< PTTextLink > Path; // стек траектории движения по тексту
-	std::stack< PTTextLink > St;   // стек для итератора
-	PTTextLink GetFirstAtom(PTTextLink pl); // поиск первого атома
-	void PrintText(PTTextLink ptl);         // печать текста со звена ptl
-	PTTextLink ReadText(std::ifstream& TxtFile); // чтение текста из файла
+	PTTextLink pFirst;        // СѓРєР°Р·Р°С‚РµР»СЊ РєРѕСЂРЅСЏ РґРµСЂРµРІР°
+	PTTextLink pCurrent;      // СѓРєР°Р·Р°С‚РµР»СЊ С‚РµРєСѓС‰РµР№ СЃС‚СЂРѕРєРё
+	std::stack< PTTextLink > Path; // СЃС‚РµРє С‚СЂР°РµРєС‚РѕСЂРёРё РґРІРёР¶РµРЅРёСЏ РїРѕ С‚РµРєСЃС‚Сѓ
+	std::stack< PTTextLink > St;   // СЃС‚РµРє РґР»СЏ РёС‚РµСЂР°С‚РѕСЂР°
+	PTTextLink GetFirstAtom(PTTextLink pl); // РїРѕРёСЃРє РїРµСЂРІРѕРіРѕ Р°С‚РѕРјР°
+	void PrintText(PTTextLink ptl);         // РїРµС‡Р°С‚СЊ С‚РµРєСЃС‚Р° СЃРѕ Р·РІРµРЅР° ptl
+	PTTextLink ReadText(std::ifstream& TxtFile); // С‡С‚РµРЅРёРµ С‚РµРєСЃС‚Р° РёР· С„Р°Р№Р»Р°
 public:
 	TText(PTTextLink pl = nullptr);
 	~TText() { pFirst = nullptr; }
 	PTText GetCopy();
 
-	// навигация
-	int GoFirstLink(); // переход к первой строке
-	int GoDownLink();  // переход к следующей строке по Down
-	int GoNextLink();  // переход к следующей строке по Next
-	int GoPrevLink();  // переход к предыдущей позиции в тексте
+	// РЅР°РІРёРіР°С†РёСЏ
+	int GoFirstLink(); // РїРµСЂРµС…РѕРґ Рє РїРµСЂРІРѕР№ СЃС‚СЂРѕРєРµ
+	int GoDownLink();  // РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµР№ СЃС‚СЂРѕРєРµ РїРѕ Down
+	int GoNextLink();  // РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµР№ СЃС‚СЂРѕРєРµ РїРѕ Next
+	int GoPrevLink();  // РїРµСЂРµС…РѕРґ Рє РїСЂРµРґС‹РґСѓС‰РµР№ РїРѕР·РёС†РёРё РІ С‚РµРєСЃС‚Рµ
 
-	// доступ
-	std::string GetLine(void);   // чтение текущей строки
-	void SetLine(std::string s); // замена текущей строки 
+	// РґРѕСЃС‚СѓРї
+	std::string GetLine(void);   // С‡С‚РµРЅРёРµ С‚РµРєСѓС‰РµР№ СЃС‚СЂРѕРєРё
+	void SetLine(std::string s); // Р·Р°РјРµРЅР° С‚РµРєСѓС‰РµР№ СЃС‚СЂРѕРєРё 
 
-	// модификация
-	void InsDownLine(std::string s);    // вставка строки в подуровень
-	void InsDownSection(std::string s); // вставка раздела в подуровень
-	void InsNextLine(std::string s);    // вставка строки в том же уровне
-	void InsNextSection(std::string s); // вставка раздела в том же уровне
-	void DelDownLine(void);        // удаление строки в подуровне
-	void DelDownSection(void);     // удаление раздела в подуровне
-	void DelNextLine(void);        // удаление строки в том же уровне
-	void DelNextSection(void);     // удаление раздела в том же уровне
+	// РјРѕРґРёС„РёРєР°С†РёСЏ
+	void InsDownLine(std::string s);    // РІСЃС‚Р°РІРєР° СЃС‚СЂРѕРєРё РІ РїРѕРґСѓСЂРѕРІРµРЅСЊ
+	void InsDownSection(std::string s); // РІСЃС‚Р°РІРєР° СЂР°Р·РґРµР»Р° РІ РїРѕРґСѓСЂРѕРІРµРЅСЊ
+	void InsNextLine(std::string s);    // РІСЃС‚Р°РІРєР° СЃС‚СЂРѕРєРё РІ С‚РѕРј Р¶Рµ СѓСЂРѕРІРЅРµ
+	void InsNextSection(std::string s); // РІСЃС‚Р°РІРєР° СЂР°Р·РґРµР»Р° РІ С‚РѕРј Р¶Рµ СѓСЂРѕРІРЅРµ
+	void DelDownLine(void);        // СѓРґР°Р»РµРЅРёРµ СЃС‚СЂРѕРєРё РІ РїРѕРґСѓСЂРѕРІРЅРµ
+	void DelDownSection(void);     // СѓРґР°Р»РµРЅРёРµ СЂР°Р·РґРµР»Р° РІ РїРѕРґСѓСЂРѕРІРЅРµ
+	void DelNextLine(void);        // СѓРґР°Р»РµРЅРёРµ СЃС‚СЂРѕРєРё РІ С‚РѕРј Р¶Рµ СѓСЂРѕРІРЅРµ
+	void DelNextSection(void);     // СѓРґР°Р»РµРЅРёРµ СЂР°Р·РґРµР»Р° РІ С‚РѕРј Р¶Рµ СѓСЂРѕРІРЅРµ
 
-	// итератор
-	int Reset(void);               // установить на первую звапись
-	int IsTextEnded() const { return !St.size(); };  // текст завершен?
-	int GoNext(void);              // переход к следующей записи
+	// РёС‚РµСЂР°С‚РѕСЂ
+	int Reset(void);               // СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅР° РїРµСЂРІСѓСЋ Р·РІР°РїРёСЃСЊ
+	int IsTextEnded() const { return !St.size(); };  // С‚РµРєСЃС‚ Р·Р°РІРµСЂС€РµРЅ?
+	int GoNext(void);              // РїРµСЂРµС…РѕРґ Рє СЃР»РµРґСѓСЋС‰РµР№ Р·Р°РїРёСЃРё
 
-	// работа с файлами
-	void Read(char* pFileName);   // ввод текста из файла
-	void Write(char* pFileName);  // вывод текста в файл
+	// СЂР°Р±РѕС‚Р° СЃ С„Р°Р№Р»Р°РјРё
+	void Read(char* pFileName);   // РІРІРѕРґ С‚РµРєСЃС‚Р° РёР· С„Р°Р№Р»Р°
+	void Write(char* pFileName);  // РІС‹РІРѕРґ С‚РµРєСЃС‚Р° РІ С„Р°Р№Р»
 
-	// печать
-	void Print(void);              // печать текста
+	// РїРµС‡Р°С‚СЊ
+	void Print(void);              // РїРµС‡Р°С‚СЊ С‚РµРєСЃС‚Р°
 };
 
 #endif

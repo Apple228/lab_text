@@ -1,4 +1,4 @@
-#ifndef __TEXTLINK_H
+п»ї#ifndef __TEXTLINK_H
 #define __TEXTLINK_H
 
 //#include <alloc.h>
@@ -11,9 +11,9 @@
 
 class TTextMem
 {
-	PTTextLink pFirst; //указатели на первое звено
-	PTTextLink pLast; //указатели на последнее звено
-	PTTextLink pFree; //указатели на первое свободное звено
+	PTTextLink pFirst; //СѓРєР°Р·Р°С‚РµР»Рё РЅР° РїРµСЂРІРѕРµ Р·РІРµРЅРѕ
+	PTTextLink pLast; //СѓРєР°Р·Р°С‚РµР»Рё РЅР° РїРѕСЃР»РµРґРЅРµРµ Р·РІРµРЅРѕ
+	PTTextLink pFree; //СѓРєР°Р·Р°С‚РµР»Рё РЅР° РїРµСЂРІРѕРµ СЃРІРѕР±РѕРґРЅРѕРµ Р·РІРµРЅРѕ
 	friend class TTextLink;
 };
 typedef TTextMem* PTTextMem;
@@ -23,13 +23,13 @@ class TTextLink : public TDatValue
 public:
 	TStr Str;
 	PTTextLink pNext, pDown;
-	static TTextMem MemHeader;//система управления памятью
+	static TTextMem MemHeader;//СЃРёСЃС‚РµРјР° СѓРїСЂР°РІР»РµРЅРёСЏ РїР°РјСЏС‚СЊСЋ
 public:
-	static void InitMemSystem(int size = MemSize); // инициализация памяти
-	static void PrintFreeLink(void);               // печать свободные звеньев
-	void* operator new (size_t size);			   // выделение звена
-	//void operator delete (void* pM);			   // освобождение звена
-	//static void MemCleaner(const TText& txt);	   // сборка мусора
+	static void InitMemSystem(int size = MemSize); // РёРЅРёС†РёР°Р»РёР·Р°С†РёСЏ РїР°РјСЏС‚Рё
+	static void PrintFreeLink(void);               // РїРµС‡Р°С‚СЊ СЃРІРѕР±РѕРґРЅС‹Рµ Р·РІРµРЅСЊРµРІ
+	void* operator new (size_t size);			   // РІС‹РґРµР»РµРЅРёРµ Р·РІРµРЅР°
+	//void operator delete (void* pM);			   // РѕСЃРІРѕР±РѕР¶РґРµРЅРёРµ Р·РІРµРЅР°
+	//static void MemCleaner(const TText& txt);	   // СЃР±РѕСЂРєР° РјСѓСЃРѕСЂР°
 public:
 	TTextLink(TStr s = NULL, PTTextLink pn = NULL, PTTextLink pd = NULL)
 	{
@@ -38,7 +38,7 @@ public:
 		else Str[0] = '\0';
 	}
 	~TTextLink(){}
-	int IsAtom() { return pDown == NULL; } // проверка атомарности звена
+	int IsAtom() { return pDown == NULL; } // РїСЂРѕРІРµСЂРєР° Р°С‚РѕРјР°СЂРЅРѕСЃС‚Рё Р·РІРµРЅР°
 	PTTextLink GetNext() { return pNext; }
 	PTTextLink GetDown() { return pDown; }
 	TDatValue* GetCopy() { return new TTextLink(Str, pNext, pDown); }

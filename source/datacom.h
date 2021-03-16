@@ -1,12 +1,12 @@
-#ifndef __DATACOM_H__
+п»ї#ifndef __DATACOM_H__
 #define __DATACOM_H__
 #define DataOK   0
 #define DataErr -1
-// TDataCom является общим базовым классом
+// TDataCom СЏРІР»СЏРµС‚СЃСЏ РѕР±С‰РёРј Р±Р°Р·РѕРІС‹Рј РєР»Р°СЃСЃРѕРј
 class TDataCom
 {
 protected:
-    int RetCode; // Код завершения
+    int RetCode; // РљРѕРґ Р·Р°РІРµСЂС€РµРЅРёСЏ
     int SetRetCode(int ret) { return RetCode = ret; }
 public:
     TDataCom() : RetCode(DataOK) {}

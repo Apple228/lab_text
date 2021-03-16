@@ -13,4 +13,5 @@ int main()
 	txt.Print();
 	txt.GoFirstLink();
 	//txt.PrintFreeLink();
+
 }
