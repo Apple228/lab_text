@@ -27,11 +27,11 @@ public:
 	~TText() { pFirst = nullptr; }
 	PTText GetCopy();
 
-	// навигация
-	int GoFirstLink(); // переход к первой строке
-	int GoDownLink();  // переход к следующей строке по Down
-	int GoNextLink();  // переход к следующей строке по Next
-	int GoPrevLink();  // переход к предыдущей позиции в тексте
+	// навигация (переделал в void из int)
+	void GoFirstLink(); // переход к первой строке
+	void GoDownLink();  // переход к следующей строке по Down
+	void GoNextLink();  // переход к следующей строке по Next
+	void GoPrevLink();  // переход к предыдущей позиции в тексте
 
 	// доступ
 	std::string GetLine(void);   // чтение текущей строки
